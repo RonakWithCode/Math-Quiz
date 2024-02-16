@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--IN DARK MODE-->
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--Main Background Color -->
+    <color name="MainHintColor">#D6CECE</color>
+    <color name="MainBackgroundColor">#202124</color>
+    <color name="MainQuntityColor">#333030</color>
+    <color name="MainTextColor">#ffff</color>
+    <color name="BlueTextColor">#6384C8</color>
+
+</resources>

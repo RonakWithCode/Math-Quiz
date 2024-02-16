@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/MainBackgroundColor"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/game_mode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_23ssp"
+        android:textColor="@color/BlueTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/close"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/x"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textSize="@dimen/_23ssp"
+        android:textColor="@color/BlueTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="RelativeOverlap" />
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_below="@id/textview"
+        android:id="@+id/inputBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/numberOfRoundsTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/number_of_rounds"
+            app:hintTextAppearance="@style/TextInputLayoutHintAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/numberOfRoundsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="10"
+                android:textColor="@color/MainTextColor"
+                android:padding="@dimen/_10sdp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/numberOfWrongTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/number_of_wrong"
+            app:hintTextAppearance="@style/TextInputLayoutHintAppearance">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/numberOfWrongEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@color/MainTextColor"
+                android:padding="@dimen/_10sdp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+
+
+    <RadioGroup
+        android:layout_centerHorizontal="true"
+        android:id="@+id/radioGroup"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputBox">
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/radioEasy"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/easy_mode"/>
+
+        <RadioButton
+            android:id="@+id/radioNormal"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/normal_mode"/>
+
+        <!-- Add another RadioButton for additional mode -->
+        <RadioButton
+            android:id="@+id/radioHard"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hard_mode"/>
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/error"
+        android:text="@string/profile_information"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/error"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/radioGroup"
+        android:layout_height="wrap_content"/>
+
+
+
+    <TextView
+        android:text="@string/save"
+        android:layout_below="@id/error"
+        android:id="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:textSize="@dimen/_20ssp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/SaveTextColor"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

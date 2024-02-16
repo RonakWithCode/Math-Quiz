@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    profile_view_box-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/MainBackgroundColor"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/profile_information"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_23ssp"
+        android:textColor="@color/BlueTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:hint="@string/name"
+        app:endIconCheckable="true"
+        app:startIconDrawable="@drawable/baseline_person_24"
+        android:id="@+id/name">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:textColor="@color/MainTextColor"
+            android:inputType="textPersonName"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:hint="@string/age"
+        android:layout_below="@id/name"
+        app:endIconCheckable="true"
+        app:startIconDrawable="@drawable/baseline_data_usage_24"
+        android:id="@+id/age">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:inputType="number"
+            android:textColor="@color/MainTextColor"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/error"
+        android:text="@string/profile_information"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/error"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/age"
+        android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:text="@string/save"
+            android:layout_below="@id/error"
+            android:id="@+id/save"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:textSize="@dimen/_20ssp"
+            android:textColor="@color/SaveTextColor"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
