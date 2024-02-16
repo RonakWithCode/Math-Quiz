@@ -9,7 +9,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.mathquizgame.R;
 import com.example.mathquizgame.classes.MathQuestionGenerator;
 import com.example.mathquizgame.databinding.FragmentGameScreenBinding;
 
@@ -65,6 +68,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 //
 //</RadioGroup>
 //</LinearLayout>
+
 public class GameScreenFragment extends Fragment {
     FragmentGameScreenBinding binding;
     private static final String GAME_TYPE = "GAME_TYPE";
@@ -80,6 +84,8 @@ public class GameScreenFragment extends Fragment {
     AtomicInteger CorrectRound;
     int WrongAnswer;
 
+    NavController navController;
+    Bundle bundle;
     public GameScreenFragment() {
         // Required empty public constructor
     }
@@ -116,8 +122,12 @@ public class GameScreenFragment extends Fragment {
         binding.rounded.setText("0/"+getGameRound);
         CorrectRound = new AtomicInteger();
 //        WrongAnswer = new AtomicInteger(1);
+        bundle = new Bundle();
 
         questionGenerator = new MathQuestionGenerator();
+        NavHostFragment navHostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
         mathQuestions = questionGenerator.generateMathQuestions(getGameType, getGameMode, getGameRound);
         NextQuestion();
     }
@@ -125,7 +135,11 @@ public class GameScreenFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     private void NextQuestion() {
         if (CorrectRound.get()>=getGameRound){
-            Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
+            int CurrentRound = CorrectRound.get()+1;
+            bundle.putString("ROUND", CurrentRound +"/"+getGameRound);
+            bundle.putString("WRONG",WrongAnswer+"/"+getGameWrong);
+            // Navigate to the destination with the provided bundle
+            navController.navigate(R.id.action_gameScreenFragment_to_gameOverScreenFragment, bundle);
         }
         else {
             int CurrentRound = CorrectRound.get()+1;
@@ -153,13 +167,16 @@ public class GameScreenFragment extends Fragment {
                     NextQuestion();
                 }else {
                     WrongAnswer++;
-                    if (getGameWrong>=WrongAnswer){
+                    if (getGameWrong==WrongAnswer){
+                        bundle.putString("ROUND", CurrentRound +"/"+getGameRound);
+                        bundle.putString("WRONG",WrongAnswer+"/"+getGameWrong);
+                        // Navigate to the destination with the provided bundle
+                        navController.navigate(R.id.action_gameScreenFragment_to_gameOverScreenFragment, bundle);
+                    }else {
                         binding.numberOfWrong.setText(WrongAnswer+"/"+getGameWrong);
                         CorrectRound.set(CorrectRound.get() + 1);
                         NextQuestion();
-                    }else {
-                        Toast.makeText(requireContext(), "Wrong linet", Toast.LENGTH_SHORT).show();
-                    }
+                     }
                 }
             });
             binding.ans2.setOnClickListener(Ans2 -> {
@@ -169,12 +186,15 @@ public class GameScreenFragment extends Fragment {
                     NextQuestion();
                 }else {
                     WrongAnswer++;
-                    if (getGameWrong>=WrongAnswer){
-                        binding.numberOfWrong.setText(WrongAnswer+"/"+getGameWrong);
+                    if (getGameWrong == WrongAnswer) {
+                        bundle.putString("ROUND", CurrentRound + "/" + getGameRound);
+                        bundle.putString("WRONG", WrongAnswer + "/" + getGameWrong);
+                        // Navigate to the destination with the provided bundle
+                        navController.navigate(R.id.action_gameScreenFragment_to_gameOverScreenFragment, bundle);
+                    } else {
+                        binding.numberOfWrong.setText(WrongAnswer + "/" + getGameWrong);
                         CorrectRound.set(CorrectRound.get() + 1);
                         NextQuestion();
-                    }else {
-                        Toast.makeText(requireContext(), "Wrong linet", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

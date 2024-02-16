@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 public class MathQuestionGenerator {
-
     // Define math operations
     private enum MathOperation {
         ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION
@@ -41,8 +40,6 @@ public class MathQuestionGenerator {
     // Method to determine math operation based on game type
     private MathOperation getMathOperation(String gameType) {
         switch (gameType) {
-            case "add":
-                return MathOperation.ADDITION;
             case "subtract":
                 return MathOperation.SUBTRACTION;
             case "multiply":

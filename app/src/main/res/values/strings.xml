@@ -14,4 +14,8 @@
     <string name="normal_mode">Normal Mode</string>
     <string name="hard_mode">Hard Mode</string>
     <string name="easy_mode">Easy Mode</string>
+    <string name="result">Result</string>
+    <string name="totol_number_of_round">Totol number of Round</string>
+    <string name="go_home">Go Home</string>
+    <string name="tap_to_back">Tap to back</string>
 </resources>

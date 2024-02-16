@@ -30,7 +30,6 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +37,7 @@ public class HomeFragment extends Fragment {
 
         }
     }
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -56,11 +56,9 @@ public class HomeFragment extends Fragment {
         binding.MultiplyBtu.setOnClickListener(view->{
             GameMode("multiply");
         });
-
         binding.divideBtu.setOnClickListener(view->{
             GameMode("divide");
         });
-
         return binding.getRoot();
     }
 
@@ -169,5 +167,6 @@ public class HomeFragment extends Fragment {
                 gameModeBoxBinding.error.setText("Please enter valid integers");
             }
         });
+
     }
 }

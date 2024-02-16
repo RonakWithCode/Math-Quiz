@@ -18,5 +18,14 @@
         android:id="@+id/gameScreenFragment"
         android:name="com.example.mathquizgame.Fragment.GameScreenFragment"
         android:label="fragment_game_screen"
-        tools:layout="@layout/fragment_game_screen" />
+        tools:layout="@layout/fragment_game_screen" >
+        <action
+            android:id="@+id/action_gameScreenFragment_to_gameOverScreenFragment"
+            app:destination="@id/gameOverScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverScreenFragment"
+        android:name="com.example.mathquizgame.Fragment.GameOverScreenFragment"
+        android:label="fragment_game_over_screen"
+        tools:layout="@layout/fragment_game_over_screen" />
 </navigation>
