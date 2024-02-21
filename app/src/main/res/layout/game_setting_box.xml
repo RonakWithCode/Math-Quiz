@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/MainBackgroundColor"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/setting"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_23ssp"
+        android:textColor="@color/BlueTextColor"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/x"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:textSize="@dimen/_23ssp"
+        android:textColor="@color/BlueTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="RelativeOverlap" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/TouchSound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:checked="true"
+        android:text="@string/touch_sound"
+        android:textColor="@color/MainTextColor" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/music"
+        android:layout_width="match_parent"
+        android:layout_below="@id/TouchSound"
+        android:layout_height="wrap_content"
+        android:textColor="@color/MainTextColor"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:checked="true"
+        android:text="@string/music"/>
+
+    <RadioGroup
+        android:id="@+id/ScreenMode"
+        android:layout_below="@id/music"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/default_Mode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:text="@string/default_mode_get_os_theme"/>
+    <RadioButton
+        android:id="@+id/light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/light_mode"/>
+    <RadioButton
+        android:id="@+id/Dark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/dark_mode"/>
+    </RadioGroup>
+    <TextView
+        android:id="@+id/error"
+        android:text="@string/profile_information"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/error"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/ScreenMode"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:text="@string/close"
+        android:layout_below="@id/error"
+        android:id="@+id/close1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/SaveTextColor"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

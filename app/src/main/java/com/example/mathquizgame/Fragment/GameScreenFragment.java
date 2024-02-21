@@ -2,6 +2,7 @@ package com.example.mathquizgame.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,10 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.mathquizgame.R;
 import com.example.mathquizgame.classes.MathQuestionGenerator;
 import com.example.mathquizgame.databinding.FragmentGameScreenBinding;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.List;
 import java.util.Random;
@@ -69,12 +74,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 //</RadioGroup>
 //</LinearLayout>
 
+//online_box
 public class GameScreenFragment extends Fragment {
     FragmentGameScreenBinding binding;
     private static final String GAME_TYPE = "GAME_TYPE";
     private static final String GAME_MODE = "GAME_MODE";
     private static final String GAME_WRONG = "GAME_WRONG";
     private static final String GAME_ROUND = "GAME_ROUND";
+    private final String Rewarded = "ca-app-pub-7951692897729874/2369201326";
+    private final String TAG = "GameScreenFragment";
+
+    private RewardedAd rewardedAd;
+
     private String getGameType;
     private String getGameMode;
     private int getGameWrong;
@@ -123,13 +134,50 @@ public class GameScreenFragment extends Fragment {
         CorrectRound = new AtomicInteger();
 //        WrongAnswer = new AtomicInteger(1);
         bundle = new Bundle();
-
         questionGenerator = new MathQuestionGenerator();
+        binding.findAns.setOnClickListener(view->{
+            AdRequest adRequest = new AdRequest.Builder().build();
+            RewardedAd.load(requireContext(), Rewarded,
+                    adRequest, new RewardedAdLoadCallback() {
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                            // Handle the error.
+                            Log.d(TAG, loadAdError.toString());
+                            Toast.makeText(requireContext(), "Offline Mode", Toast.LENGTH_SHORT).show();
+                            rewardedAd = null;
+//                            navigateToGameScreen();
+                        }
+
+                        @Override
+                        public void onAdLoaded(@NonNull RewardedAd ad) {
+                            rewardedAd = ad;
+                            showRewardedAd();
+                            Log.d(TAG, "Ad was loaded.");
+                        }
+                    });
+        });
         NavHostFragment navHostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
         mathQuestions = questionGenerator.generateMathQuestions(getGameType, getGameMode, getGameRound);
         NextQuestion();
+    }
+
+    private void showRewardedAd() {
+        if (rewardedAd != null) {
+            rewardedAd.show(requireActivity(), rewardItem -> {
+                // User earned reward, navigate to the game screen
+//                navigateToGameScreen();
+                CorrectRound.set(CorrectRound.get() + 1);
+                NextQuestion();
+            });
+        } else {
+            // Rewarded ad is not loaded, navigate to the game screen
+//            navigateToGameScreen();.
+            Toast.makeText(requireContext(), "Is null", Toast.LENGTH_SHORT).show();
+            CorrectRound.set(CorrectRound.get() + 1);
+            NextQuestion();
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -199,6 +247,7 @@ public class GameScreenFragment extends Fragment {
                 }
             });
         }
+
     }
 
     private String getOperatorString() {

@@ -61,6 +61,20 @@ public class GameOverScreenFragment extends Fragment {
             requireActivity().finish();
             startActivity(new Intent(requireContext(), MainActivity.class));
         });
+        binding.share.setOnClickListener(share->{
+            // Create a share message with the total rounds, total wrong answers, and app download link
+            String shareMessage = "Total Rounds: " + getRound + "\n" +
+                    "Total Wrong Answers: " + getWrong + "\n" +
+                    "Download our app: [https://crazy-studio-website.firebaseapp.com/]";
+
+            // Create a share intent
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+
+            // Start the activity chooser
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
+        });
         return binding.getRoot();
     }
 

@@ -18,4 +18,14 @@
     <string name="totol_number_of_round">Totol number of Round</string>
     <string name="go_home">Go Home</string>
     <string name="tap_to_back">Tap to back</string>
+    <string name="join_or_create_new">Join or create new</string>
+    <string name="room_id">Room id</string>
+    <string name="setting">Settings</string>
+    <string name="music">Music</string>
+    <string name="sound_fx">Sound fx</string>
+    <string name="touch_sound">Touch Sound</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="default_mode_get_os_theme">default Mode (get OS theme)</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="close">close</string>
 </resources>

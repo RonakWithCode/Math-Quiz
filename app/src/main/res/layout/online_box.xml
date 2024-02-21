@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/MainBackgroundColor">
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/game_mode"
+        android:textColor="@color/BlueTextColor"
+        android:textSize="@dimen/_23ssp" />
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:text="@string/x"
+        android:textColor="@color/BlueTextColor"
+        android:textSize="@dimen/_23ssp"
+        tools:ignore="RelativeOverlap" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RoomId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview"
+        android:layout_margin="@dimen/_15sdp"
+        android:hint="@string/room_id"
+        app:helperText="create a new room or join a room"
+        app:hintTextAppearance="@style/TextInputLayoutHintAppearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RoomIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/MainTextColor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RoomId"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:text="@string/profile_information"
+        android:textColor="@color/error"
+        android:textSize="@dimen/_13ssp"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/error"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:text="@string/join_or_create_new"
+        android:textColor="@color/SaveTextColor"
+        android:textSize="@dimen/_20ssp" />
+
+</RelativeLayout>
