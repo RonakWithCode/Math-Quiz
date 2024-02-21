@@ -24,6 +24,7 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 //
 //<LinearLayout
@@ -94,9 +95,11 @@ public class GameScreenFragment extends Fragment {
     List<MathQuestionGenerator.MathQuestion> mathQuestions;
     AtomicInteger CorrectRound;
     int WrongAnswer;
+    boolean IsInChange = true;
 
     NavController navController;
     Bundle bundle;
+    MathQuestionGenerator.MathQuestion mathQuestion;
     public GameScreenFragment() {
         // Required empty public constructor
     }
@@ -127,8 +130,9 @@ public class GameScreenFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void init(){
+        binding.back.setOnClickListener(back->requireActivity().onBackPressed());
         binding.numberOfWrong.setText("0/"+getGameWrong);
         binding.rounded.setText("0/"+getGameRound);
         CorrectRound = new AtomicInteger();
@@ -161,6 +165,25 @@ public class GameScreenFragment extends Fragment {
         navController = navHostFragment.getNavController();
         mathQuestions = questionGenerator.generateMathQuestions(getGameType, getGameMode, getGameRound);
         NextQuestion();
+        binding.ChangeLayout.setOnClickListener(view->{
+
+            String questionText;
+            if (IsInChange) {
+                questionText = String.format("%d %s %d", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2());
+                IsInChange = false;
+            }
+            else {
+                if (String.valueOf(mathQuestion.getOperand1()).trim().length() > 1) {
+                    // If operand1 is two digits
+                    questionText = String.format("%s\n%s %s\n%s", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2(), "");
+                } else {
+                    // If operand1 is one digit or less
+                    questionText = String.format("%s\n%s %s\n%s", mathQuestion.getOperand2(), getOperatorString(), mathQuestion.getOperand1(), "");
+                }
+                IsInChange = true;
+            }
+            binding.Ques.setText(questionText);
+        });
     }
 
     private void showRewardedAd() {
@@ -180,7 +203,7 @@ public class GameScreenFragment extends Fragment {
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void NextQuestion() {
         if (CorrectRound.get()>=getGameRound){
             int CurrentRound = CorrectRound.get()+1;
@@ -192,10 +215,27 @@ public class GameScreenFragment extends Fragment {
         else {
             int CurrentRound = CorrectRound.get()+1;
             binding.rounded.setText(CurrentRound+"/"+getGameRound);
-            MathQuestionGenerator.MathQuestion mathQuestion = mathQuestions.get(CorrectRound.get());
+            mathQuestion = mathQuestions.get(CorrectRound.get());
+            String questionText;
+            if (IsInChange) {
+                questionText = String.format("%d %s %d", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2());
+                IsInChange = false;
+            }
+            else {
+                if (String.valueOf(mathQuestion.getOperand1()).trim().length() > 1) {
+                    // If operand1 is two digits
+                    questionText = String.format("%s\n%s %s\n%s", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2(), "");
+                } else {
+                    // If operand1 is one digit or less
+                    questionText = String.format("%s\n%s %s\n%s", mathQuestion.getOperand2(), getOperatorString(), mathQuestion.getOperand1(), "");
+                }
+                IsInChange = true;
+            }
 // Format the math question string
             @SuppressLint("DefaultLocale")
-            String questionText = String.format("%d %s %d", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2());
+//            String questionText = String.format("%s\n%s\n%s", mathQuestion.getOperand1(), getOperatorString(), mathQuestion.getOperand2());
+
+
             int CorrectAnswer = mathQuestion.getCorrectAnswer();
             binding.Ques.setText(questionText);
             Random random = new Random();
