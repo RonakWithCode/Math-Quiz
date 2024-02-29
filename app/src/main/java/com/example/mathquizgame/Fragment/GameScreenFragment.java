@@ -24,7 +24,6 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 //
 //<LinearLayout
@@ -246,7 +245,7 @@ public class GameScreenFragment extends Fragment {
                 binding.ans2.setText(String.valueOf(mathQuestion.getFalseAnswer()));   // Assuming ans2 is the false answer
             }else {
                 binding.ans2.setText(String.valueOf(mathQuestion.getCorrectAnswer())); // Assuming ans1 is the correct answer
-                binding.ans1.setText(String.valueOf(mathQuestion.getFalseAnswer()));   // Assu
+                binding.ans1.setText(String.valueOf(mathQuestion.getFalseAnswer()));   //
             }
             binding.ans1.setOnClickListener(Ans -> {
                 int ansBtn = Integer.parseInt(binding.ans1.getText().toString());
