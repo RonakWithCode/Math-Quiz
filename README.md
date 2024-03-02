@@ -16,10 +16,9 @@ The Math Quiz Android app is a simple and interactive application designed to he
 ## Future Updates
 
 - **Play with Friends**: Challenge your friends to a math duel and compete in real-time multiplayer games.
-- **Brandon Person**: Introduce a new character, Brandon, who provides hints and tips during gameplay to assist users.
 - **Limit of Round Time**: Implement a time limit for each round to add an extra layer of challenge.
 - **Additional Levels**: Add more levels of difficulty to provide a greater variety of challenges for users.
-- **Google Play Store Link**: Once published, the app will be available for download on the Google Play Store.
+
 
 
 
