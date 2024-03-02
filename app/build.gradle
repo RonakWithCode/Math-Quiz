@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.mathquizgame'
+    namespace 'com.Ronosoftstudio.mathquizgame'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.mathquizgame"
+        applicationId "com.Ronosoftstudio.mathquizgame"
         minSdk 24
         targetSdk 34
         versionCode 1

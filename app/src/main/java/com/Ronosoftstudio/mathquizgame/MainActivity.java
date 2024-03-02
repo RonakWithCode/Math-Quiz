@@ -1,23 +1,15 @@
-package com.example.mathquizgame;
-
+package com.Ronosoftstudio.mathquizgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.example.mathquizgame.databinding.ActivityMainBinding;
+import com.Ronosoftstudio.mathquizgame.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
 public class MainActivity extends AppCompatActivity {
-
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        this.finish();
 //        startActivity(new Intent(this, MainActivity.class));
+
     }
 
 //    @Override

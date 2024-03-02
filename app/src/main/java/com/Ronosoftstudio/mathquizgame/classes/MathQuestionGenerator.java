@@ -1,5 +1,4 @@
-package com.example.mathquizgame.classes;
-import android.util.Log;
+package com.Ronosoftstudio.mathquizgame.classes;
 
 import java.util.ArrayList;
 import java.util.List;

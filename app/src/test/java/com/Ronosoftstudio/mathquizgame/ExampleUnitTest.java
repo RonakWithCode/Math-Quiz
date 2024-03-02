@@ -1,4 +1,4 @@
-package com.example.mathquizgame;
+package com.Ronosoftstudio.mathquizgame;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.mathquizgame.Fragment;
+package com.Ronosoftstudio.mathquizgame.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -19,22 +19,16 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.mathquizgame.MainActivity;
-import com.example.mathquizgame.R;
-import com.example.mathquizgame.databinding.FragmentHomeBinding;
-import com.example.mathquizgame.databinding.GameModeBoxBinding;
-import com.example.mathquizgame.databinding.GameSettingBoxBinding;
-import com.example.mathquizgame.databinding.ProfileViewBoxBinding;
-import com.google.android.gms.ads.AdError;
+import com.Ronosoftstudio.mathquizgame.R;
+import com.Ronosoftstudio.mathquizgame.databinding.FragmentHomeBinding;
+import com.Ronosoftstudio.mathquizgame.databinding.GameModeBoxBinding;
+import com.Ronosoftstudio.mathquizgame.databinding.GameSettingBoxBinding;
+import com.Ronosoftstudio.mathquizgame.databinding.ProfileViewBoxBinding;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 

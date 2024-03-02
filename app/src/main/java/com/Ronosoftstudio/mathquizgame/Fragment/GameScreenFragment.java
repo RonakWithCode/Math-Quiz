@@ -1,4 +1,4 @@
-package com.example.mathquizgame.Fragment;
+package com.Ronosoftstudio.mathquizgame.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.mathquizgame.R;
-import com.example.mathquizgame.classes.MathQuestionGenerator;
-import com.example.mathquizgame.databinding.FragmentGameScreenBinding;
+import com.Ronosoftstudio.mathquizgame.R;
+import com.Ronosoftstudio.mathquizgame.classes.MathQuestionGenerator;
+import com.Ronosoftstudio.mathquizgame.databinding.FragmentGameScreenBinding;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.rewarded.RewardedAd;
